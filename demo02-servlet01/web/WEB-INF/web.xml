@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="https://jakarta.ee/xml/ns/jakartaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_5_0.xsd"
+         version="5.0">
+        <!--
+        1 配置Servlet类，并起一个别名
+            servlet-class 告诉Tomcat对应的要实例化的Servlet类
+            servlet-name 用于关联请求的映射路劲的
+        -->
+        <servlet>
+            <servlet-name>userServlet</servlet-name>
+            <servlet-class>com.atguigu.servlet.UserServlet</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>userServlet</servlet-name>
+            <url-pattern>/userServlet</url-pattern>
+        </servlet-mapping>
+
+        <!--
+        一个servlet-name 可以同时对应多个url-pattern
+        一个servlet标签可以同时对应多个servlet-mapping标签
+        url-pattern
+            1 精确匹配
+                /servlet
+            2 模糊匹配
+                *作为通配符,*在哪里，哪里就是模糊的
+                /       匹配全部，不包含jsp文件
+                /*      匹配全部，包含jsp文件
+                /a/*    匹配前缀，后缀模糊
+                *.action匹配后缀，前缀模糊
+        -->
+<!--        <servlet>
+            <servlet-name>servlet1</servlet-name>
+            <servlet-class>com.atguigu.servlet.Servlet1</servlet-class>
+        </servlet>
+        <servlet-mapping>
+            <servlet-name>servlet1</servlet-name>
+            <url-pattern>/a/*</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>servlet1</servlet-name>
+            <url-pattern>/s1</url-pattern>
+            <url-pattern>/xx1</url-pattern>
+        </servlet-mapping>
+
+        <servlet-mapping>
+            <servlet-name>servlet1</servlet-name>
+            <url-pattern>/a</url-pattern>
+            <url-pattern>/b</url-pattern>
+        </servlet-mapping>-->
+
+<!--    <servlet>
+        <servlet-name>servletLifeCycle</servlet-name>
+        <servlet-class>com.atguigu.servlet.ServletLifeCycle</servlet-class>
+        &lt;!&ndash;
+            默认值是-1 含义是tomcat启动时不会实例化servlet
+            其它正整数  15 含义是tomcat在启动时，实例化该servlet的顺序
+                          如果序号冲突了，tomcat会自动协调启动顺序
+        &ndash;&gt;
+        <load-on-startup>6</load-on-startup>
+    </servlet>
+
+    <servlet-mapping>
+        <servlet-name>servletLifeCycle</servlet-name>
+        <url-pattern>/servletLifeCycle</url-pattern>
+    </servlet-mapping>-->
+</web-app>

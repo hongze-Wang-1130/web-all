@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--
+http://127.0.0.1:8080/demo02/userServlet?username=zhangsan
+
+POST:
+    请求体
+        username=zhangsan
+-->
+<form method="post" action="UserServlet">
+    用户名:<input type="text" name="username"><br>
+    <input type="submit" value="校验">
+</form>
+<br>
+<form method="post" action="servletLifeCycle">
+    用户名:<input type="text" name="username"><br>
+    <input type="submit" value="校验">
+</form>
+</body>
+</html>
